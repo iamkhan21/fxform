@@ -1,14 +1,10 @@
 import { combine, createDomain, forward, sample } from "effector";
 import { type SafeParseReturnType, type ZodType } from "zod";
 import { debounce } from "patronum/debounce";
-import  type { Field, Fields, FieldsSources, Form } from "./types";
+import type { Field, Fields, FieldsSources, Form } from "./types";
 
-function createField(
-  fieldName: string,
-  initialValue: string,
-  validator: ZodType
-): Field {
-  const filed = createDomain(fieldName);
+function createField(initialValue: string, validator: ZodType): Field {
+  const filed = createDomain();
   const value$ = filed.createStore(initialValue);
 
   const error$ = filed.createStore<string>("");
@@ -51,7 +47,7 @@ export function createForm<T extends Record<string, [string, ZodType]>>(
   const fieldSources = {} as FieldsSources<T>;
 
   for (const [key, value] of Object.entries(formData)) {
-    const field = createField(key, ...value);
+    const field = createField(...value);
     fieldSources[key as keyof T] = field.value$;
     fields[key as keyof T] = field;
   }
