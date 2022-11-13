@@ -1,6 +1,6 @@
 {
   "name": "@iamkhan21/fxform",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "Reactive forms based on effector and zod",
   "keywords": [
     "effector",
@@ -19,6 +19,7 @@
   "scripts": {
     "watch": "parcel watch",
     "build": "parcel build",
+    "release": "standard-version",
     "prepublishOnly": "rimraf ./dist && rimraf ./package && npm run build",
     "publish": "clean-publish",
     "postpublish": "rimraf ./dist && rimraf ./package",
@@ -36,6 +37,7 @@
     "parcel": "2.8.0",
     "prettier": "2.7.1",
     "rimraf": "3.0.2",
+    "standard-version": "9.5.0",
     "typescript": "4.8.4"
   },
   "clean-publish": {
