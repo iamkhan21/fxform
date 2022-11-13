@@ -1,6 +1,6 @@
 {
   "name": "@iamkhan21/fxform",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Reactive forms based on effector and zod",
   "keywords": [
     "effector",
@@ -10,7 +10,8 @@
     "name": "Ivan Khanevich",
     "email": "mail@iamkhan.tech"
   },
-  "license": "MIT",
+  "repository": "https://github.com/iamkhan21/fxform",
+  "license": "Apache-2.0",
   "source": "src/index.ts",
   "main": "dist/main.js",
   "module": "dist/module.js",
