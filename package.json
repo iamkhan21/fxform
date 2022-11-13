@@ -19,7 +19,7 @@
   "scripts": {
     "watch": "parcel watch",
     "build": "parcel build",
-    "release": "standard-version",
+    "release": "standard-version && git push --follow-tags origin master && npm publish",
     "prepublishOnly": "rimraf ./dist && rimraf ./package && npm run build",
     "publish": "clean-publish",
     "postpublish": "rimraf ./dist && rimraf ./package",
