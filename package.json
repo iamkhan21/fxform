@@ -19,7 +19,7 @@
   "scripts": {
     "watch": "parcel watch",
     "build": "parcel build",
-    "release": "standard-version && git push --follow-tags origin master && pnpm run publish",
+    "release": "pnpm dlx changelogen@latest --release && pnpm run publish",
     "prepublishOnly": "rimraf ./dist && rimraf ./package && npm run build",
     "publish": "clean-publish",
     "postpublish": "rimraf ./dist && rimraf ./package",
@@ -37,7 +37,6 @@
     "parcel": "2.8.0",
     "prettier": "2.7.1",
     "rimraf": "3.0.2",
-    "standard-version": "9.5.0",
     "typescript": "4.8.4"
   },
   "clean-publish": {
