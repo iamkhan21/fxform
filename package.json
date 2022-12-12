@@ -1,5 +1,6 @@
 {
   "name": "@iamkhan21/fxform",
+  "type": "module",
   "version": "2.2.0",
   "description": "Reactive forms based on effector and zod",
   "keywords": [
@@ -11,43 +12,74 @@
     "email": "mail@iamkhan.tech"
   },
   "repository": "https://github.com/iamkhan21/fxform",
-  "license": "Apache-2.0",
-  "source": "src/index.ts",
-  "main": "dist/main.js",
-  "module": "dist/module.js",
-  "types": "dist/types.d.ts",
+  "funding": "https://github.com/sponsors/iamkhan21",
+  "homepage": "https://github.com/iamkhan21/fxform#readme",
+  "bugs": "https://github.com/iamkhan21/fxform/issues",
+  "license": "MIT",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
   "scripts": {
-    "watch": "parcel watch",
-    "build": "parcel build",
-    "release": "pnpm dlx changelogen@latest --release && pnpm run publish",
-    "prepublishOnly": "rimraf ./dist && rimraf ./package && npm run build",
+    "clean": "rimraf ./dist && rimraf ./package",
+    "build": "unbuild",
+    "bumpp": "bumpp",
     "publish": "clean-publish",
     "postpublish": "rimraf ./dist && rimraf ./package",
-    "update:deps": "pnpm up -r -i -L && pnpm i"
+    "release": "run-s clean bumpp build publish",
+    "test": "vitest",
+    "format": "nx rome format ./src --write",
+    "lint": "nx rome check ./src --apply-suggested",
+    "typecheck": "tsc --noEmit",
+    "update:deps": "nu -i --latest && ni"
   },
   "dependencies": {
     "effector": "22.4.0",
     "patronum": "1.12.3",
-    "zod": "3.19.1"
+    "zod": "3.20.0"
   },
   "devDependencies": {
-    "@parcel/packager-ts": "2.8.0",
-    "@parcel/transformer-typescript-types": "2.8.0",
-    "clean-publish": "4.0.1",
-    "parcel": "2.8.0",
-    "prettier": "2.7.1",
+    "@antfu/ni": "0.18.8",
+    "@types/node": "18.11.13",
+    "bumpp": "8.2.1",
+    "clean-publish": "4.0.2",
+    "esno": "0.16.3",
+    "npm-run-all": "4.1.5",
+    "prettier": "2.8.1",
     "rimraf": "3.0.2",
-    "typescript": "4.9.3"
+    "rome": "11.0.0",
+    "typescript": "4.9.4",
+    "unbuild": "1.0.2",
+    "vite": "4.0.0",
+    "vitest": "0.25.7"
+  },
+  "publishConfig": {
+    "directory": "package"
   },
   "clean-publish": {
     "access": "public",
     "files": [
       ".idea",
-      ".parcel-cache",
       "src",
-      "tsconfig.json"
+      "tsconfig.json",
+      "build.config.ts",
+      ".gitignore",
+      ".npmrc"
     ],
-    "tempDir": "package",
-    "packageManager": "pnpm"
+    "tempDir": "package"
   }
 }

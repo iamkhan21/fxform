@@ -1,5 +1,11 @@
-.idea/
-node_modules/
-.parcel-cache/
-dist/
-package/
+.cache
+.DS_Store
+.idea
+*.log
+*.tgz
+coverage
+dist
+lib-cov
+logs
+node_modules
+temp
