@@ -48,7 +48,7 @@
     "update:deps": "nu -i --latest && ni"
   },
   "dependencies": {
-    "effector": "22.4.0",
+    "effector": "22.4.1",
     "patronum": "1.12.3",
     "zod": "3.20.0"
   },

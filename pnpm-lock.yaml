@@ -5,7 +5,7 @@ specifiers:
   '@types/node': 18.11.13
   bumpp: 8.2.1
   clean-publish: 4.0.2
-  effector: 22.4.0
+  effector: 22.4.1
   esno: 0.16.3
   npm-run-all: 4.1.5
   patronum: 1.12.3
@@ -19,8 +19,8 @@ specifiers:
   zod: 3.20.0
 
 dependencies:
-  effector: 22.4.0
-  patronum: 1.12.3_effector@22.4.0
+  effector: 22.4.1
+  patronum: 1.12.3_effector@22.4.1
   zod: 3.20.0
 
 devDependencies:
@@ -959,8 +959,8 @@ packages:
       path-type: 4.0.0
     dev: true
 
-  /effector/22.4.0:
-    resolution: {integrity: sha512-WQ0rboUp1fvkzo2rPymtWzR9isUl8v9McGvBA4g8zvQaTgZnXQ1iCbNj2S54bADGpSNl1CYv1/61vvdbc5Goyw==}
+  /effector/22.4.1:
+    resolution: {integrity: sha512-/GeCeEnSMaLvuskQMBI6bzd5V3GvRRv8mI/Wed9JEenstYGDhJQTIVkO5K+Fdt3KC3d5T8wdWxMzGVkKdaDAEw==}
     engines: {node: '>=11.0.0'}
     dev: false
 
@@ -2118,12 +2118,12 @@ packages:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}
     dev: true
 
-  /patronum/1.12.3_effector@22.4.0:
+  /patronum/1.12.3_effector@22.4.1:
     resolution: {integrity: sha512-srIlxQ0+B/CoH4nKD1mU9LDSSiluTD4zN4AoWS+KNafi3UKKe16GmUkj2OtSoxMK79UpoE/CvnqMPyKeU9ivDg==}
     peerDependencies:
       effector: ^22.1.2
     dependencies:
-      effector: 22.4.0
+      effector: 22.4.1
     dev: false
 
   /picocolors/1.0.0:
