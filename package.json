@@ -1,7 +1,7 @@
 {
   "name": "@iamkhan21/fxform",
   "type": "module",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "description": "Reactive forms based on effector and zod",
   "keywords": [
     "effector",
