@@ -1,29 +1,29 @@
 import { ZodType } from "zod";
 import { Event, Store } from "effector";
 
-export type Field = {
-	value$: Store<string>;
-	error$: Store<string>;
-	isTouched$: Store<boolean>;
-	isValid$: Store<true | false>;
-	set: Event<string>;
-	reset: Event<void>;
+export type FormDraft = Record<string, [unknown, ZodType]>;
+
+export type FieldsSources<T extends FormDraft> = {
+	[K in keyof T]: Store<T[K][0]>;
 };
 
-export type Form<T> = {
-	fields: Record<string, Field>;
+export type Fields<T extends FormDraft> = { [K in keyof T]: Field<T[K][0]> };
+
+export type FormValues<T extends FormDraft> = { [K in keyof T]: T[K][0] };
+
+export type Form<T extends FormDraft> = {
+	fields: Fields<T>;
 	isValid$: Store<boolean>;
 	reset: Event<void>;
 	submit: Event<void>;
-	submitted: Event<Record<keyof T, string>>;
+	submitted: Event<FormValues<T>>;
 };
 
-export type Fields<T extends Record<string, [string, ZodType]>> = Record<
-	keyof T,
-	Field
->;
-
-export type FieldsSources<T extends Record<string, [string, ZodType]>> = Record<
-	keyof T,
-	Store<string>
->;
+export type Field<T> = {
+	value$: Store<T>;
+	error$: Store<string>;
+	isTouched$: Store<boolean>;
+	isValid$: Store<boolean>;
+	set: Event<T>;
+	reset: Event<void>;
+};
